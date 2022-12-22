@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="-2S2W-bn1XfGcOy7nWc1" name="Page-1">
-        <mxGraphModel dx="468" dy="527" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="606" dy="291" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" style="locked=1;" parent="0"/>
@@ -32,7 +32,7 @@
                 <mxCell id="73" value="Leave Review" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#999999;" parent="9" vertex="1">
                     <mxGeometry x="85" y="867" width="300" height="193" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="Navbar" style="locked=1;" parent="0"/>
+                <mxCell id="15" value="Navbar" style="locked=1;" parent="0" visible="0"/>
                 <mxCell id="19" value="Logo" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=default;labelBackgroundColor=none;strokeColor=#001DBC;" parent="15" vertex="1">
                     <mxGeometry x="85" y="130" width="35" height="20" as="geometry"/>
                 </mxCell>
@@ -52,21 +52,39 @@
                 <mxCell id="25" value="Button" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#ffffff;fillColor=#0050ef;strokeColor=#001DBC;" parent="22" vertex="1">
                     <mxGeometry x="99" y="225" width="70" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="Recent Articles" style="locked=1;" parent="0" visible="0"/>
+                <mxCell id="26" value="Recent Articles" style="" parent="0"/>
                 <mxCell id="27" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#ffffff;fillColor=#0050ef;strokeColor=#001DBC;" parent="26" vertex="1">
-                    <mxGeometry x="100" y="300" width="130" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="28" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#ffffff;fillColor=#0050ef;strokeColor=#001DBC;" parent="26" vertex="1">
-                    <mxGeometry x="100" y="360" width="130" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="29" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#ffffff;fillColor=#0050ef;strokeColor=#001DBC;" parent="26" vertex="1">
-                    <mxGeometry x="244" y="300" width="130" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="30" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#ffffff;fillColor=#0050ef;strokeColor=#001DBC;" parent="26" vertex="1">
-                    <mxGeometry x="244" y="360" width="130" height="50" as="geometry"/>
+                    <mxGeometry x="100" y="300" width="220" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="31" value="Title" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#ffffff;fillColor=#0050ef;strokeColor=#001DBC;" parent="26" vertex="1">
                     <mxGeometry x="100" y="270" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="Thumbnail" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillWeight=4;hachureGap=8;hachureAngle=45;fillColor=#1ba1e2;sketch=1;" vertex="1" parent="26">
+                    <mxGeometry x="240" y="305" width="60" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="Article Title" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="26">
+                    <mxGeometry x="100" y="303" width="80" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="first part of the article" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="26">
+                    <mxGeometry x="106" y="319" width="120" height="12" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="infor about the article" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="26">
+                    <mxGeometry x="110" y="335" width="120" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#ffffff;fillColor=#0050ef;strokeColor=#001DBC;" vertex="1" parent="26">
+                    <mxGeometry x="100" y="360" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="Thumbnail" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillWeight=4;hachureGap=8;hachureAngle=45;fillColor=#1ba1e2;sketch=1;" vertex="1" parent="26">
+                    <mxGeometry x="240" y="365" width="60" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="Article Title" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="26">
+                    <mxGeometry x="100" y="363" width="80" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="first part of the article" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="26">
+                    <mxGeometry x="106" y="379" width="120" height="12" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="infor about the article" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="26">
+                    <mxGeometry x="110" y="395" width="120" height="10" as="geometry"/>
                 </mxCell>
                 <mxCell id="52" value="Reviews" style="locked=1;" parent="0" visible="0"/>
                 <mxCell id="53" value="&lt;span&gt;Review&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#ffffff;fillColor=#0050ef;strokeColor=#001DBC;aspect=fixed;" parent="52" vertex="1">
