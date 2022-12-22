@@ -1,0 +1,13 @@
+main {
+  width: var(--page-width);
+  background: none;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+section {
+  background: #fff;
+  padding: 1rem 2rem;
+}

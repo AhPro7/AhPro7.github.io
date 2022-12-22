@@ -1,0 +1,43 @@
+header {
+  background: var(--primary-color);
+  padding: 4rem 3rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: wobble 5s ease-in-out alternate infinite;
+  box-shadow: #64646f33 0px 7px 29px 0px;
+  margin-bottom: 2rem;
+}
+header h1 {
+  margin: 0;
+  padding: 0;
+}
+.header-button {
+  display: inline-block;
+  background: #fff;
+  padding: 1rem 0.8rem;
+  margin: 0;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 7px;
+  width: fit-content;
+  color: var(--primary-color);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: 300ms;
+  border: 2px solid #fff;
+}
+.header-button:hover {
+  background: #fff2;
+  color: #fff;
+  border-color: #fff;
+  text-decoration: underline;
+}
+@keyframes wobble {
+  0% {
+    border-radius: 0 0 20% 10% / 0 0 20% 20%;
+  }
+  100% {
+    border-radius: 0 0 50% 30% / 0 0 20% 20%;
+  }
+}
