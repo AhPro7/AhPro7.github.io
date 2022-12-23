@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="assets/css/home/header.css" />
     <link rel="stylesheet" href="assets/css/home/recent-articles.css" />
     <link rel="stylesheet" href="assets/css/home/reviews.css" />
+    <link rel="stylesheet" href="assets/css/home/team.css" />
+    <!-- javascript -->
+    <script src="assets/js/team.js"></script>
   </head>
   <body>
     <!-- Navbar start -->
@@ -50,7 +53,7 @@
               <div class="thumbnail">
                 <img src="assets/img/newest.png" alt="" />
               </div>
-              <span class="artgicle-title">عنوان المقال</span>
+              <span class="article-title">عنوان المقال</span>
               <span class="article-firstpart">
                 جمل عربي بلا هدف ولا معنى ولا شيء جمل عربي بلا هدف ولا معنى ولا
                 شيء جمل عربي بلا هدف ولا معنى ولا شيء
@@ -109,6 +112,7 @@
 
       <!-- Reviews Start -->
       <section class="reviews">
+        <hr>
         <h2>التعليقات و الاراء</h2>
 
         <div class="reviews-list">
@@ -154,18 +158,48 @@
 
       <!-- Team Start -->
       <section clasas="team">
+        <hr>
         <h2>الفريق</h2>
-      </section>
+
+        <div class="team__section"> <!-- Specificity container -->
+          <a href="javascript:void(0);" title="Account Manager"><div class="team__slot">
+              <div class="headshot" onclick="biograph(this.parentNode);" style="background-image:url('assets/img/Ahmed.png');"></div>
+
+            <div class="team__info">
+            <h4 class="name">احمد هيثم</h4>
+            <h5 class="title">الكاتب</h5>
+            </div>
+                <div class="bioText">مجرد كتابة باللغة العربية للاختبار<br><br>
+
+                  <!-- need to make a div for social media icons in one line -->
+                  <!-- like ==> https://codepen.io/kieranfivestars/pen/gbOWbM -->
+
+                </div>
+
+            </div></a><a href="javascript:void(0);" title="Chairman"><div class="team__slot"><div class="headshot" onclick="biograph(this.parentNode);" style="background-image:url('http://placekitten.com/254/254');"></div>
+            <div class="team__info">
+            <h4 class="name">Chairman Meow</h4>
+            <h5 class="title">Chairman</h5>
+            </div>
+            <div class="bioText">Chariman Meow is a lorem ipsum dalor set amet consectur adipscing.<br><br>f g+ tw li</div>
+
+            </div></a>
+
+            </div>
+
+        </section>
       <!-- Team End -->
 
       <!-- Email Sub Start -->
       <section class="email-sub">
+        <hr>
         <h2>اشترك ليصلك كل جديد</h2>
       </section>
       <!-- Email Sub End -->
 
       <!-- Leave Review Start -->
       <section class="leave-review">
+        <hr>
         <h2>اترك تعليقك</h2>
       </section>
       <!-- Leave Review End -->
