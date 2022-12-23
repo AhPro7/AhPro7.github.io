@@ -5,13 +5,14 @@
 }
 .article {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 1rem;
   border: 1px solid #2222;
   transition: 300ms;
+  background-color: #3b3e42;
 }
 .article .thumbnail {
   margin-left: auto;
