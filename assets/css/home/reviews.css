@@ -38,12 +38,13 @@
 }
 
 .review-text{
+    color:#0F172A;
     font-size: 1.2rem;
     line-height: 1.5rem;
     padding: 1rem;
     margin: 0;
     text-align: center;
-    background: papayawhip;
+    background: #CBD5E1;
     border: 1px solid var(--primary-color);
     border-radius: 3rem 1rem 2rem 1rem;
 }

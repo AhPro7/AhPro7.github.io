@@ -1,8 +1,18 @@
+/* 
+:root {
+--brand-color: #3B82F6;
+--dark-color: #0F172A;
+--mid-color: #CBD5E1;
+--light-color: #F8FAFC;
+  }
+*/
+
 /* vars start */
 :root{
-    --page-width: 70%;
-    --primary-color: dodgerblue;
-    --background: #222;
+    --page-width: 80%;
+    --primary-color: #3b82f6;
+    --background: #0F172A;
+
 }
 /* vars end */
 
