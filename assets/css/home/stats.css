@@ -10,8 +10,8 @@
 .guage {
     display: grid;
     place-items: center;
-    width: 64px;
-    height: 64px;
+    width: 164px;
+    height: 164px;
     border-radius: 50%;
     cursor: default;
     vertical-align:top;
@@ -21,9 +21,19 @@
 
   }
 
+  .guage-inner {
+    display: grid;
+    place-items: center;
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    background: #0F172A;
+    font-size: 1.5rem;
+}
+
   .guage.teal {
-    color: #48c6d8;
-    background: conic-gradient(#48c6d8 0% 20%, #303238 20% 100%);
+    color: #3B82F6;
+    background: conic-gradient(#3B82F6 0% 20%, #303238 20% 100%);
   }
 
   .guage.pink {
@@ -36,11 +46,3 @@
     background: conic-gradient(#ffffff 0% 18%, #303238 18% 100%);
   }
 
-  .guage-inner {
-    display: grid;
-    place-items: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: #1d1e22;
-  }
