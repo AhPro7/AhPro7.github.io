@@ -31,7 +31,9 @@
 }
 .reviewer img{
     width: 100%;
-    border-radius: 30%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    border-radius: 10%;
 }
 .reviewer .name{
     color: #F8FAFC;

@@ -1,12 +1,12 @@
 header {
-  background: var(--primary-color);
+  background: linear-gradient(90deg, #3b82f6 0%, #3b82f6 50%, #3b82f680 100%);
   padding: 4rem 3rem;
   color: #fff;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   animation: wobble 5s ease-in-out alternate infinite;
-  box-shadow: #64646f33 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-bottom: 2rem;
 }
 header h1 {

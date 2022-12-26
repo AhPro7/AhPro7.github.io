@@ -12,3 +12,12 @@ section {
   padding: 1rem 2rem;
   color: #3b82f6;
 }
+
+section h2 {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--secondary-color) 0%, #3b82f6 50%, #3b82f680 100%);
+  padding: 1rem 0.8rem;
+  color: transparent;
+  background-clip: text;
+  border-bottom: 2px solid var(--primary-color);
+}
