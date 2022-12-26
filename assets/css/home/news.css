@@ -5,7 +5,7 @@
     /* max-width: 362px; */
     padding: 16px 24px;
   }
-  
+
   .newsletter-subscribe,
   .newsletter-subscribe input,
   .newsletter-subscribe button {
@@ -17,12 +17,12 @@
     align-items: flex-start;
     justify-content: space-between;
   }
-  
+
   .newsletter-subscribe label {
     width: 100%;
     margin-right: 20px;
   }
-  
+
   .newsletter-subscribe input {
     border: none;
     border-bottom: 1px solid #666666;
@@ -32,27 +32,27 @@
     color: #0093ec;
     font-size: 20px;
   }
-  
+
   .newsletter-subscribe input:hover,
   .newsletter-subscribe input:focus {
     border-bottom: 1px solid #0093ec;
     color: #0093ec;
     font-size: 20px;
   }
-  
+
   .newsletter-subscribe input:focus {
     outline: none;
   }
-  
+
   input::-webkit-input-placeholder {
     transition: color 0.4s ease-in-out;
   }
-  
+
   input:hover::-webkit-input-placeholder,
   input:focus::-webkit-input-placeholder{
     color: #ccc;
   }
-  
+
   .newsletter-subscribe button {
     font-size: 14px;
     line-height: 1;
@@ -65,9 +65,7 @@
     padding-right: 1rem;
     transition: background-color 0.4s ease-in-out,border-color 0.4s ease-in-out,color 0.4s ease-in-out;
   }
-  
+
   .newsletter-subscribe button:hover, .newsletter-subscribe button:focus {
       background-color: #0073b9;
   }
-  
-  
