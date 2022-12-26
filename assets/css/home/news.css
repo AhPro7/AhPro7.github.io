@@ -2,7 +2,8 @@
   .newsletter-subscribe {
     font-size: 20px;
     display: block;
-    /* max-width: 362px; */
+    width: 60%;
+    margin: 0 auto;
     padding: 16px 24px;
   }
 
@@ -57,8 +58,8 @@
     font-size: 14px;
     line-height: 1;
     border: none;
-    border-radius: 34px;
-    background-color: #0093ec;
+    border-radius: 10px;
+    background-color: #3b82f6;
     color: #fff;
     height: 34px;
     padding-left: 1rem;
