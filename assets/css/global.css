@@ -15,6 +15,9 @@
   --background: #0f172a;
 }
 /* vars end */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   padding: 0;
