@@ -74,10 +74,6 @@ nav li::after {
   transition: 200ms ease-out;
 }
 
-nav li:focus-within {
-  width: 100%;
-}
-
 nav li:hover::after {
   width: 100%;
 }
