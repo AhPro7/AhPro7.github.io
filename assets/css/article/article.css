@@ -1,0 +1,95 @@
+body{
+}
+main{
+    color: aliceblue;
+}
+
+.article-title{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #3B82F6;
+}
+
+img.article-banner{
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.article-body{
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.article-body h2{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.article-body h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.article-body h4{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.article-body p{
+    margin-bottom: 1rem;
+}
+
+.article-body a{
+    color: #3B82F6;
+}
+
+.article-body a:hover{
+    color: #F8FAFC;
+}
+
+.article-body img{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.article-body ul{
+    margin-bottom: 1rem;
+}
+
+.article-body ol{
+    margin-bottom: 1rem;
+}
+
+.article-body li{
+    margin-bottom: 1rem;
+}
+
+.article-body blockquote{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #1d2226;
+    border-right: 5px solid #3B82F6;
+}
+
+.article-body pre{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #1d2226;
+    border-right: 5px solid #3B82F6;
+}
+
+.article-body code{
+    text-align: left;
+    display: block;
+    padding: 1rem;
+    background-color: #1d2226;
+    border-radius: 5px;
+    font-family: 'Fira Code', monospace;
+}
+
