@@ -50,3 +50,26 @@
     border: 1px solid var(--primary-color);
     border-radius: 3rem 1rem 2rem 1rem;
 }
+
+/* make the reviews list responsive and it's content */
+@media screen and (max-width: 600px) {
+  .reviews-list {
+    display: flex !important;
+    flex-direction: column;
+    display: block;
+    align-items:baseline;
+    justify-content:space-between;
+  }
+  .review {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .review-text{
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+  .arrow {
+    display: none;
+  }
+}
