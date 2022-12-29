@@ -61,6 +61,8 @@ nav ul {
 nav li {
   padding: 0.4rem 1rem;
   position: relative;
+  text-align: right;
+
 }
 nav li::after {
   content: "";
@@ -83,22 +85,19 @@ nav li.active::after{
 }
 /* navbar end */
 
-/* media query start */
-
+/* navbar responsive start */
 @media screen and (max-width: 768px) {
   nav .inner-nav {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
   nav ul {
     display: flex;
     flex-direction: column;
     width: 100%;
-    text-align: center;
-  }
-  nav li {
-    padding: 0.4rem 0;
+    text-align: center;  }
+  nav .logo {
+    margin: 0;
   }
 }
-
-
