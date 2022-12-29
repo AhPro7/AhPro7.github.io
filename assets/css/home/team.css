@@ -54,11 +54,12 @@
 
 .pe img
 {
-	width: 250px;
+	width: 200px;
 	aspect-ratio: 1;
-	border-radius: 10%;
+	border-radius: 50%; ;
 	object-fit: cover;
 	transition: 300ms;
+	box-shadow: 10px 5px 0 0px #0f172a , 12px 7px 0 0px #3B82F6;
 }
 
 .pe:hover img:first-child{
@@ -74,21 +75,27 @@
 	z-index: -1;
 	transform-origin: bottom;
 	transition: 300ms;
+	box-shadow: none;
 }
 
 .pe:hover .over
 {
 	opacity: 1;
 	z-index: 1;
-	filter: saturate(1.2);
+	filter: saturate(1.2) grayscale(1) drop-shadow(5px 5px 0 #0f172a) drop-shadow(7px 7px 0 #3B82F6);
 	translate: 30px;
 	border-radius: 0;
 }
 
 .p-name
 {
-	margin: 5px;
+	margin-top: 1rem;
 	text-transform: uppercase;
+	border: 2px solid #3B82F6;
+	padding: 10px 20px;
+	color: #F8FAFC;
+	border-radius: 5px;
+	z-index: 3;
 }
 
 .p-des
