@@ -93,3 +93,21 @@ img.article-banner{
     font-family: 'Fira Code', monospace;
 }
 
+/* make page responsive */
+@media screen and (max-width: 600px) {
+    .article-title{
+        font-size: 2rem;
+    }
+    .article-body{
+        font-size: 1rem;
+    }
+    .article-body h2{
+        font-size: 1.5rem;
+    }
+    .article-body h3{
+        font-size: 1.2rem;
+    }
+    .article-body h4{
+        font-size: 1rem;
+    }
+}
