@@ -57,12 +57,12 @@ nav a {
 nav ul {
   display: flex;
   list-style: none;
+  transition: 300ms;
 }
 nav li {
   padding: 0.4rem 1rem;
   position: relative;
   text-align: right;
-
 }
 nav li::after {
   content: "";
@@ -80,8 +80,12 @@ nav li:hover::after {
   width: 100%;
 }
 
-nav li.active::after{
+nav li.active::after {
   width: 100%;
+}
+
+nav .hambuger-button {
+  display: none;
 }
 /* navbar end */
 
@@ -96,8 +100,70 @@ nav li.active::after{
     display: flex;
     flex-direction: column;
     width: 100%;
-    text-align: center;  }
+    text-align: center;
+  }
   nav .logo {
     margin: 0;
+  }
+
+  nav .hambuger-button {
+    display: block;
+    cursor: pointer;
+    width: 16px;
+    aspect-ratio: 1;
+    position: relative;
+  }
+  nav .hambuger-button .line{
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    transition: 300ms;
+    position: absolute;
+  }
+
+  .line-1{
+    top: 0;
+    left: 0;
+  }
+  .line-2{
+    top: 7px;
+    left: 0;
+  }
+  .line-3{
+    bottom: 0;
+    left: 0;
+  }
+
+  nav .hambuger-button.closed .line {
+    background: #fff;
+  }
+  nav .hambuger-button.closed{
+    overflow: hidden;
+  }
+  nav .hambuger-button.closed:hover .line{
+    background: var(--primary-color);
+  }
+  nav .hambuger-button.closed .line-2{
+    opacity: 0;
+  }
+  nav .hambuger-button.closed .line-1 {
+    opacity: 1;
+    transform-origin: left;
+    rotate: 45deg;
+    top: -1px;
+    width: 150%;
+  }
+  nav .hambuger-button.closed .line-3 {
+    opacity: 1;
+    transform-origin: left;
+    rotate: -45deg;
+    bottom: -1px;
+    width: 150%;
+  }
+
+  nav ul.menu-closed {
+    overflow: hidden;
+    margin: 0;
+    height: 0;
   }
 }

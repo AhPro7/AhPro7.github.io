@@ -29,5 +29,13 @@ window.addEventListener('scroll', () => {
     // add active class to the link
     if (current)
         document.querySelector(`nav ul a[href="#${current}"] li`).classList.add('active');
-
 })
+
+const toggleHamburger = () => {
+    const ul = document.querySelector('nav ul');
+    const ham = document.querySelector('.hambuger-button');
+
+
+    ham.classList.toggle('closed');
+    ul.classList.toggle('menu-closed');
+}
