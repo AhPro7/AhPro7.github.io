@@ -38,6 +38,7 @@ for i in range(len(files)):
         "description": "",
         "tags": [],
         "date": "",
+        "img": ""
     }
 
     # get the data from the meta tags
@@ -51,6 +52,8 @@ for i in range(len(files)):
             metaData["tags"] = [tag.strip() for tag in metaData["tags"]]
         elif tag.get("name") == "date":
             metaData["date"] = tag.get("content")
+        elif tag.get("name") == "img":
+            metaData["img"] = tag.get("content")
 
     # add the metadata to the articles list
     articles.append(metaData)
