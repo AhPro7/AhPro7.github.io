@@ -1,6 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en">
   <head>
+
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-11N94LT6KX"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', 'G-11N94LT6KX');
+            </script>
+    
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Ahmed Haytham</title>
@@ -19,6 +31,9 @@
       href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
 
     <link
       rel="stylesheet"
@@ -66,7 +81,7 @@
           <div class="line line-3"></div>
         </div>
         <ul class="menu-closed">
-          <a href="../"><li>المدونة</li></a>
+          <a href="../"><li>Blog</li></a>
         </ul>
       </div>
     </nav>
@@ -177,7 +192,7 @@ asdsa asd as da
         </p>
 
         <!-- demo js code -->
-        <code>
+        <pre><code class="language-javascript">
             const article = document.querySelector("article");
             const images = document.querySelectorAll("img");
             const paragraphs = document.querySelectorAll("p");
@@ -200,14 +215,28 @@ asdsa asd as da
             const totalHeight = articleHeight - imagesHeight - paragraphsHeight - titlesHeight;
 
             console.log(totalHeight);
-        </code>
+        </code></pre>
+
+        <pre><code class="language-python">
+          # Your Python code here
+          def hello():
+            print("Hello, World!")
+          </code></pre>
+          
         <!-- demo code for python with syntax highlighting -->
             <code class="python">
                 def hello():
                     print("hello world")
             </code>
+            <!-- text the codebloc -->
+            <code
       </div>
     </main>
+    
     <script src="../assets/js/script.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    
   </body>
 </html>

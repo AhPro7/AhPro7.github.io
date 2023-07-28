@@ -71,28 +71,98 @@ img.article-banner{
 }
 
 .article-body blockquote{
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     padding: 1rem;
     background-color: #1d2226;
-    border-right: 5px solid #3B82F6;
+    border-radius: 10px;
+    border-left: 5px solid #3B82F6;
+    box-shadow: 0 0 5px #3B82F6;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 40px;
 }
 
 .article-body pre{
     margin-bottom: 1rem;
     padding: 1rem;
     background-color: #1d2226;
-    border-right: 5px solid #3B82F6;
+    border-left: 5px solid #3B82F6;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #3B82F6;
 }
 
 .article-body code{
     text-align: left;
     display: block;
-    padding: 1rem;
+
     background-color: #1d2226;
     border-radius: 5px;
     font-family: 'Fira Code', monospace;
+    box-shadow: 0 0 10px #3B82F6;
 }
 
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #2b2b2b;
+    color: #c5c8c6;
+  }
+  .hljs-comment,
+  .hljs-quote {
+    color: #8fa1b3;
+    font-style: italic;
+  }
+  .hljs-doctag,
+  .hljs-keyword,
+  .hljs-formula {
+    color: #61afef;
+  }
+  .hljs-section,
+  .hljs-name,
+  .hljs-selector-tag,
+  .hljs-deletion,
+  .hljs-subst {
+    color: #e06c75;
+  }
+  .hljs-literal {
+    color: #d19a66;
+  }
+  .hljs-string,
+  .hljs-regexp,
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-meta-string {
+    color: #98c379;
+  }
+  .hljs-built_in,
+  .hljs-class .hljs-title {
+    color: #56b6c2;
+  }
+  .hljs-attr,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-selector-class,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-number {
+    color: #d19a66;
+  }
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-link,
+  .hljs-meta,
+  .hljs-selector-id,
+  .hljs-title {
+    color: #61afef;
+  }
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  .hljs-strong {
+    font-weight: bold;
+  }
 
 /* make page responsive */
 @media screen and (max-width: 600px) {

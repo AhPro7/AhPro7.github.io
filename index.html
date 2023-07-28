@@ -1,6 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en">
   <head>
+            <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-11N94LT6KX"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-11N94LT6KX');
+        </script>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Ahmed Haytham</title>
@@ -43,7 +53,7 @@
             <img src="assets/img/ahmed haytham-07.png" alt="logo" />
           </a>
           <a href="">
-            <span><h3>Ahmed Hytham</h3></span>
+            <span><h3>Ahmed Haytham</h3></span>
           </a>
         </div>
         <div class="hambuger-button" onclick="toggleHamburger();">
@@ -52,13 +62,13 @@
           <div class="line line-3"></div>
         </div>
         <ul class="menu-closed">
-          <a href="#recent-articles"><li>اخر المقالات</li></a>
-          <a href="#comments"><li>التعليقات و الاراء</li></a>
-          <a href="#team"><li>الفريق</li></a>
-          <a href="#stats"><li>احصائيات</li></a>
-          <a href="#email"><li>اشترك</li></a>
-          <a href="#opinion"><li>رائيك</li></a>
-          <a href="articles"><li>كل المقالات</li></a>
+            <a href="#recent-articles"><b><li>Last Articles</li></b></a> 
+            <a href="#comments"><b><li>Comments and Opinions</li></b></a>
+            <a href="#team"><b><li>The Team</li></b></a>
+            <a href="#stats"><b><li>Statistics</li></b></a>
+            <a href="#email"><b><li>Subscribe</li></b></a>
+            <!-- <a href="#opinion"><li>Your Opinion</li></a> -->
+            <a href="articles" class="all-articles-link"><b><li>All Articles</li></b></a>
         </ul>
       </div>
     </nav>
@@ -67,9 +77,9 @@
     <main>
       <!-- Header Start -->
       <header>
-        <h1>السلام عليكم يا كرام</h1>
+        <h1>Hello fellow Adventurer</h1> 
         <p class="typed" data-type-interval="10">
-          اهلا وسهلا فى مدونتى ادعو الله ان تنال اعجابكم
+          Hello, in my blog which is a documentation of my adventures in the Data Science & AI world. I hope you enjoy it.
         </p>
         <a href="#recent-articles" class="header-button">لنكمل</a>
       </header>
@@ -78,7 +88,7 @@
       <!-- Recent Articles Start -->
       <section class="recent-articles" id="recent-articles">
         <p></p>
-        <h2>اخر المقالات</h2>
+        <h2>Last Articles</h2>
         <div class="articles">
         </div>
       </section>
@@ -87,7 +97,7 @@
       <!-- Reviews Start -->
       <section class="reviews" id="comments">
         <hr />
-        <h2>التعليقات و الاراء</h2>
+        <h2>Comments and Opinions</h2>
 
         <div class="reviews-list">
           <span class="arrow">&#10148;</span>
@@ -95,22 +105,21 @@
           <div class="review">
             <div class="reviewer">
               <img src="assets/img/Ahmed.png" alt="reviewer" />
-              <span class="name">مش محمد ناشد</span>
+              <span class="name">Ahmed Haytham</span>
             </div>
             <span class="review-text">
-              المدونة تعتبر من افضل المدونات التى تعرض لي معلومات عن البرمجة
-              وعلوم البيانات
+              one of the best blogs i have ever seen in my life }
             </span>
           </div>
 
           <div class="review">
             <div class="reviewer">
               <img src="assets/img/Mohamed.jpg" alt="reviewer" />
-              <span class="name">مش احمد هيثم</span>
+              <span class="name">Not Ahmed Haytham</span>
             </div>
             <span class="review-text">
-              جمل عربي بلا هدف ولا معنى ولا شيء لازالت الجملة تكمل والله بحاول
-              اكتب اكثر من جملة
+              كلمات عربية بلا معنى لمجرد انها تبدو جميلة
+            
             </span>
           </div>
 
@@ -133,7 +142,7 @@
       <!-- Team Start -->
       <section clasas="team" id="team">
         <hr />
-        <h2>الفريق</h2>
+        <h2>The Team</h2>
         <div class="team-section">
           <div class="inner-width">
             <div class="pers">
@@ -174,24 +183,24 @@
       <section id="stats">
         <hr />
 
-        <h2>احصائيات</h2>
+        <h2>Statistics</h2>
         <div class="facts">
           <div class="guage teal">
             <div class="guage-inner">
-              20<br />
-              قارئ
+              1577<br />
+              Subscribers
             </div>
           </div>
           <div class="guage pink">
             <div class="guage-inner">
-              340<br />
-              مشاهدة
+              13<br />
+              Articles
             </div>
           </div>
           <div class="guage white">
             <div class="guage-inner">
-              1000<br />
-              مشترك
+              ???<br />
+              Views
             </div>
           </div>
         </div>
@@ -201,7 +210,7 @@
       <!-- Email Sub Start -->
       <section class="email-sub" id="email">
         <hr />
-        <h2>اشترك ليصلك كل جديد</h2>
+        <h2>Subscribe</h2>
         <form class="newsletter-subscribe" dir="ltr">
           <div>
             <label>
@@ -213,13 +222,13 @@
               />
             </label>
             <!-- <input type="submit" value="Subscribe" /> -->
-            <button>اشترك</button>
+            <button onclick="window.open('https://www.linkedin.com/newsletters/6982950006961913856/', '_blank')">Subscribe</button>
           </div>
         </form>
       </section>
       <!-- Email Sub End -->
 
-      <!-- Leave Review Start -->
+      <!-- Leave Review Start
       <section class="leave-review" id="opinion">
         <hr />
         <h2>اترك تعليقك</h2>
@@ -246,7 +255,7 @@
       </section>
       <!-- Leave Review End -->
     </main>
-
+ -->
     <script src="assets/js/script.js"></script>
     <script src="assets/js/header.js"></script>
   </body>
