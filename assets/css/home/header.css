@@ -40,7 +40,7 @@ header h1 {
   position: relative;
   font-size: 1.3rem;
   /* make max length */
-  max-width: 50%;
+  max-width: 90%;
 }
 .typed::after {
   content: "";
@@ -92,4 +92,27 @@ header h1 {
   .header-button {
     padding: 0.5rem 0.5rem;
   }
+
+  .typed{
+    display: inline-block;
+    width: fit-content;
+    position: relative;
+    font-size: 1.3rem;
+    /* make max length */
+    max-width: 90%;
+  }
+  
 }
+
+@media screen and (max-width: 900px) {
+  .typed{
+    display: inline-block;
+    width: fit-content;
+    position: relative;
+    font-size: 1.3rem;
+    /* make max length */
+    max-width: 90%;
+  }
+  
+}
+  
