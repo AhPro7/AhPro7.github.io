@@ -81,6 +81,7 @@ body {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  transition: 4s ease-in-out;
 }
 
 @-webkit-keyframes twinkle {
