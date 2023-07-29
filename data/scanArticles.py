@@ -18,7 +18,7 @@ articles = []
 current_dir = os.path.dirname(os.path.realpath(__file__))
 
 # get all file names in the articles directory except index.html
-files = [f for f in os.listdir(current_dir + "/../articles") if f != "index.html"]
+files = [f for f in os.listdir(current_dir + "/../articles") if f not in ["index.html","article.html","images"]]
 
 # get the metadata of each file from the meta tags
 for i in range(len(files)):

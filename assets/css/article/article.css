@@ -1,4 +1,6 @@
 body{
+    /* make the body zoom by 125% */
+    zoom: 125%;
 }
 main{
     color: aliceblue;
@@ -71,15 +73,17 @@ img.article-banner{
 }
 
 .article-body blockquote{
-    margin: 1rem 0;
+    margin: 1rem auto;
     padding: 1rem;
     background-color: #1d2226;
     border-radius: 10px;
     border-left: 5px solid #3B82F6;
     box-shadow: 0 0 5px #3B82F6;
     text-align: left;
-    margin-left: 0;
-    margin-right: 40px;
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-right: 5%;
 }
 
 .article-body pre{
