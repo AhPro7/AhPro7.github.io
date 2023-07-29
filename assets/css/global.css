@@ -74,7 +74,7 @@ body {
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 10px white;
-  animation: twinkle 1s infinite,;
+  animation: twinkle 1s infinite;
 }
 
 
@@ -90,6 +90,7 @@ body {
     opacity: 1;
   }
 }
+
 
 /* navbar start */
 nav {
