@@ -143,27 +143,24 @@ body {
 
 /* pantes */
 .planet {
+  z-index: -1;
   position: fixed;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   /* border-radius: 50%; */
-  background-image: url('path/to/planet-image.png');
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
   /* box-shadow: 0 0 10px #fff; */
   animation: orbit linear infinite;
-  z-index: -1; /* set z-index to negative value */
 }
 
 @keyframes orbit {
   from {
-    transform: rotate(0deg) translateX(150px) rotate(0deg);
+    transform: rotate(0deg) translateX(160) rotate(0deg);
   }
   to {
-    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
   }
 }
-
 /* navbar start */
 nav {
   background: var(--background);

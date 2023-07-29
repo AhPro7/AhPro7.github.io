@@ -125,6 +125,7 @@
 
 .p-sm a i
 {
-	color: #CBD5E1;
+	color: #ffffff;
 	line-height: 30px;
+	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #3B82F6, 0 0 70px #3B82F6, 0 0 80px #3B82F6, 0 0 100px #3B82F6, 0 0 150px #3B82F6;
 }

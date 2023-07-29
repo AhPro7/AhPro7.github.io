@@ -77,8 +77,8 @@ for (let i = 0; i < 7; i++) {
   planet.classList.add('planet');
   planet.style.top = `${Math.random() * 100}vh`;
   planet.style.left = `${Math.random() * 100}vw`;
-  planet.style.animationDuration = `${Math.random() * 10 + 5}s`;
+  planet.style.animationDuration = `${Math.random() * 80 + 10}s`;
+  planet.style.animationDelay = `${Math.random() * 5}s`;
   planet.style.backgroundImage = `url(${planetImages[Math.floor(Math.random() * planetImages.length)]})`;
-
   planetContainer.appendChild(planet);
 }
