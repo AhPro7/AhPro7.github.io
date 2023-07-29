@@ -76,12 +76,12 @@ body {
   -webkit-animation: twinkle 1.5s infinite, move 20s linear infinite;
   -moz-animation: twinkle 1.5s infinite, move 20s linear infinite;
   -o-animation: twinkle 1.5s infinite, move 20s linear infinite;
-  animation: twinkle 1.5s infinite, move 20s linear infinite;
+  animation: twinkle 1.5s infinite, move 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   position: fixed;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  transition: 4s ease-in-out;
+  transition: 4s linear;
 }
 
 @-webkit-keyframes twinkle {
@@ -141,8 +141,28 @@ body {
   }
 }
 
+/* pantes */
+.planet {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  /* border-radius: 50%; */
+  background-image: url('path/to/planet-image.png');
+  background-size: contain;
+  background-position: center;
+  /* box-shadow: 0 0 10px #fff; */
+  animation: orbit linear infinite;
+  z-index: -1; /* set z-index to negative value */
+}
 
-
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
 
 /* navbar start */
 nav {

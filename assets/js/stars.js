@@ -54,3 +54,31 @@ const animateStars = () => {
 };
 
 const interval = setInterval(animateStars, 4000);
+
+// JavaScript
+// JavaScript
+const planetContainer = document.getElementById('planet-container');
+const planetImages = [
+  'assets/img/pl1.png',
+  'assets/img/pl2.png',
+  'assets/img/pl3.png',
+  'assets/img/pl4.png',
+  'assets/img/pl5.png',
+  'assets/img/pl6.png',
+  'assets/img/pl7.png',
+
+
+  // 'assets/img/Ahmed-t.png',
+  // 'assets/img/Kaggle-CLI.png',
+  // add more image URLs as needed
+];
+for (let i = 0; i < 7; i++) {
+  const planet = document.createElement('div');
+  planet.classList.add('planet');
+  planet.style.top = `${Math.random() * 100}vh`;
+  planet.style.left = `${Math.random() * 100}vw`;
+  planet.style.animationDuration = `${Math.random() * 10 + 5}s`;
+  planet.style.backgroundImage = `url(${planetImages[Math.floor(Math.random() * planetImages.length)]})`;
+
+  planetContainer.appendChild(planet);
+}
