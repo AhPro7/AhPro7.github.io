@@ -69,16 +69,20 @@ body {
 }
 
 .star {
-  position: fixed;
   z-index: -1;
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 10px white;
-  -webkit-animation: twinkle 1s infinite, rotate 20s linear infinite;
-  -moz-animation: twinkle 1s infinite, rotate 20s linear infinite;
-  -o-animation: twinkle 1s infinite, rotate 20s linear infinite;
-  animation: twinkle 1s infinite, rotate 20s linear infinite;
+  -webkit-animation: twinkle 1.5s infinite, move 20s linear infinite;
+  -moz-animation: twinkle 1.5s infinite, move 20s linear infinite;
+  -o-animation: twinkle 1.5s infinite, move 20s linear infinite;
+  animation: twinkle 1.5s infinite, move 20s linear infinite;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
 @-webkit-keyframes twinkle {
   0% {
     opacity: 1;
@@ -127,14 +131,16 @@ body {
   }
 }
 
-@keyframes rotate {
+@keyframes move {
   from {
-    transform: rotate(0deg);
+    transform: translateX(100%);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateX(-100%);
   }
 }
+
+
 
 
 /* navbar start */
@@ -156,6 +162,8 @@ nav .logo {
   align-items: center;
   gap: 5px;
   margin-right: auto;
+  /* animation: twinkle 1s infinite, move 20s linear infinite; */
+
 }
 nav img {
   height: 2rem;
