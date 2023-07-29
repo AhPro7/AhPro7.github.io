@@ -74,7 +74,7 @@ body {
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 10px white;
-  animation: moveStars 20s linear infinite, twinkle 1s infinite, rotateStars 20s linear infinite;
+  animation: twinkle 1s infinite,;
 }
 
 
