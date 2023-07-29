@@ -27,6 +27,89 @@ body {
   overflow-x: hidden;
 }
 
+
+/* Hide the scrollbar */
+/* body::-webkit-scrollbar {
+  display: none;
+} */
+
+/* Add a custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #076bc9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3B82F6;
+}
+  
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #076bc9 #F3F4F6;
+}
+
+*::-moz-scrollbar-thumb {
+  background-color: #076bc9;
+  border-radius: 5px;
+}
+
+*::-moz-scrollbar-thumb:hover {
+  background-color: #3B82F6;
+}
+
+*::-moz-scrollbar-track {
+  background-color: #F3F4F6;
+  border-radius: 5px;
+}
+
+
+.star {
+  position: fixed;
+  z-index: -1;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px white;
+  animation: moveStars 20s linear infinite, twinkle 1s infinite, swingStars 10s ease-in-out infinite;
+}
+
+@keyframes moveStars {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes swingStars {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(100deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 /* navbar start */
 nav {
   background: var(--background);

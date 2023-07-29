@@ -51,19 +51,20 @@
     border-radius: 3rem 1rem 2rem 1rem;
 }
 
-/* make the reviews list responsive and it's content */
+/* make the reviews list responsive and its content */
 @media screen and (max-width: 900px) {
   .reviews-list {
     display: flex !important;
     flex-direction: column;
     display: block;
-    align-items:baseline;
-    justify-content:space-between;
+    align-items: center;
+    justify-content: space-between;
   }
   .review {
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
   }
   .review img{
     width: 60%;
@@ -74,12 +75,13 @@
   .reviewer .name{
     color: #F8FAFC;
     font-size: 1.5rem;
+    text-align: center;
   }
 }
-  .review-text{
-    font-size: 1rem;
-    line-height: 1.2rem;
-  }
-  .arrow {
-    display: none;
-  }
+.review-text{
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+.arrow {
+  display: none;
+}
