@@ -25,6 +25,7 @@ body {
   background: var(--background);
   font-family: "Almarai", sans-serif;
   overflow-x: hidden;
+
 }
 
 
@@ -67,17 +68,52 @@ body {
   border-radius: 5px;
 }
 
-
 .star {
   position: fixed;
   z-index: -1;
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 10px white;
-  animation: twinkle 1s infinite;
+  -webkit-animation: twinkle 1s infinite, rotate 20s linear infinite;
+  -moz-animation: twinkle 1s infinite, rotate 20s linear infinite;
+  -o-animation: twinkle 1s infinite, rotate 20s linear infinite;
+  animation: twinkle 1s infinite, rotate 20s linear infinite;
+}
+@-webkit-keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
+@-moz-keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
+@-o-keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 @keyframes twinkle {
   0% {
@@ -88,6 +124,15 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 

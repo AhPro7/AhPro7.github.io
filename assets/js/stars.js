@@ -30,7 +30,7 @@ function getRandomNumber(min, max) {
   
 
   // Add stars to the page
-  for (let i = 0; i < 300; i++) {
+  for (let i = 0; i < 200; i++) {
     const star = createStar();
     document.body.appendChild(star);
   }
