@@ -74,17 +74,10 @@ body {
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 10px white;
-  animation: moveStars 20s linear infinite, twinkle 1s infinite, swingStars 10s ease-in-out infinite;
+  animation: moveStars 20s linear infinite, twinkle 1s infinite, rotateStars 20s linear infinite;
 }
 
-@keyframes moveStars {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-200%);
-  }
-}
+
 
 @keyframes twinkle {
   0% {
@@ -95,18 +88,6 @@ body {
   }
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes swingStars {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(100deg);
-  }
-  100% {
-    transform: rotate(0deg);
   }
 }
 

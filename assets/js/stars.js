@@ -9,9 +9,9 @@ function getRandomNumber(min, max) {
     const star = document.createElement('div');
     star.classList.add('star');
   
-    // Set the position of the star randomly on the x-axis and y-axis
-    const x = getRandomNumber(-100, window.innerWidth);
-    const y = getRandomNumber(-100, window.innerHeight);
+    // Set the position of the star randomly on the entire page
+    const x = getRandomNumber(0, window.innerWidth);
+    const y = getRandomNumber(0, window.innerHeight);
     star.style.left = `${x}px`;
     star.style.top = `${y}px`;
   
@@ -27,9 +27,10 @@ function getRandomNumber(min, max) {
     // Return the star element
     return star;
   }
-        
+  
+
   // Add stars to the page
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 300; i++) {
     const star = createStar();
     document.body.appendChild(star);
   }
