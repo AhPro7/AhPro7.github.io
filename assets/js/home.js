@@ -6,7 +6,7 @@ fetch("data/articles.json").then(response => response.json()).then(data => {
     articles.forEach(article => {
         if(document.URL.match("github.io")){
             if(article.img[0] === '/'){
-                article.img = "/" + document.URL.split("/")[3] + article.img;
+                article.img = document.URL.split("/")[3] + article.img;
             }
         }
 
