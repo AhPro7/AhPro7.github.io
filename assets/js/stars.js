@@ -53,19 +53,19 @@ const animateStars = () => {
   });
 };
 
-const interval = setInterval(animateStars, 4000);
+const interval = setInterval(animateStars, 1000);
 
 // JavaScript
 // JavaScript
 const planetContainer = document.getElementById('planet-container');
 const planetImages = [
-  'assets/img/pl1.png',
-  'assets/img/pl2.png',
-  'assets/img/pl3.png',
-  'assets/img/pl4.png',
-  'assets/img/pl5.png',
-  'assets/img/pl6.png',
-  'assets/img/pl7.png',
+  '/assets/img/pl1.png',
+  '/assets/img/pl2.png',
+  '/assets/img/pl3.png',
+  '/assets/img/pl4.png',
+  '/assets/img/pl5.png',
+  '/assets/img/pl6.png',
+  '/assets/img/pl7.png',
 
 
   // 'assets/img/Ahmed-t.png',
@@ -82,3 +82,63 @@ for (let i = 0; i < 7; i++) {
   planet.style.backgroundImage = `url(${planetImages[Math.floor(Math.random() * planetImages.length)]})`;
   planetContainer.appendChild(planet);
 }
+
+// make function to delete stars and planets by clicking on button 
+function deleteStarsandPlanets() {
+  const stars = document.querySelectorAll('.star');
+  const planets = document.querySelectorAll('.planet');
+  stars.forEach((star) => {
+    star.remove();
+  });
+  planets.forEach((planet) => {
+    planet.remove();
+  });
+}
+
+// to use the function you will add onclick="deleteStarsandPlanets()" to the button in the html file eg. <button onclick="deleteStarsandPlanets()">Delete Stars and Planets</button>
+
+// make a function to delte stars and planets and add them back by clicking the button again
+function hideandShowStarsandPlanets() {
+// get the stars count
+  const starsCount = document.querySelectorAll('.star').length;
+// check if the stars count is 0 add the stars and planets back if not delete them
+  if (starsCount === 0) {
+    // add stars and planets back and the interval to animate the stars
+
+    // for (let i = 0; i < 100; i++) {
+    //   const star = createStar();
+    //   document.body.appendChild(star);
+    //   document.body.appendChild(star);
+    // }
+    // const interval = setInterval(animateStars, 1000);
+    // const planetContainer = document.getElementById('planet-container');
+    // const planetImages = [
+    //   '/assets/img/pl1.png',
+    //   '/assets/img/pl2.png',
+    //   '/assets/img/pl3.png',
+    //   '/assets/img/pl4.png',
+    //   '/assets/img/pl5.png',
+    //   '/assets/img/pl6.png',
+    //   '/assets/img/pl7.png',
+    // ];
+    // for (let i = 0; i < 7; i++) {
+    //   const planet = document.createElement('div');
+    //   planet.classList.add('planet');
+    //   planet.style.top = `${Math.random() * 100}vh`;
+    //   planet.style.left = `${Math.random() * 100}vw`;
+    //   planet.style.animationDuration = `${Math.random() * 80 + 10}s`;
+    //   planet.style.animationDelay = `${Math.random() * 5}s`;
+    //   planet.style.backgroundImage = `url(${planetImages[Math.floor(Math.random() * planetImages.length)]})`;
+    //   planetContainer.appendChild(planet);
+    // }
+    
+    // reload the page without refreshing
+    location.reload();
+    
+    
+  }
+  else {
+    deleteStarsandPlanets();
+  }
+}
+

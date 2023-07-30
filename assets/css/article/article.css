@@ -5,7 +5,12 @@ body{
 main{
     color: aliceblue;
 }
-
+.typed{
+    font-size: 70px;
+     margin: 0px;
+      margin-top: 15px;
+       word-wrap: break-word;
+}
 .article-title{
     font-size: 2.5rem;
     font-weight: 600;
@@ -170,8 +175,15 @@ img.article-banner{
 
 /* make page responsive */
 @media screen and (max-width: 600px) {
+    .typed {
+        font-size: 40px;
+        margin-top: 10px;
+      }
+    
+
     .article-title{
         font-size: 2rem;
+        max-width: 90%;
     }
     .article-body{
         font-size: 1rem;
@@ -185,4 +197,23 @@ img.article-banner{
     .article-body h4{
         font-size: 1rem;
     }
+    .article-body blockquote{
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    .article-body pre{
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    .article-body code{
+        font-size: 0.8rem;
+    }
 }
+@media screen and (max-width: 400px) {
+    .typed {
+      font-size: 30px;
+      margin-top: 15px;
+    }
+  }
