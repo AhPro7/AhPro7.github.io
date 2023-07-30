@@ -58,6 +58,7 @@ for i in range(len(files)):
     # add the metadata to the articles list
     articles.append(metaData)
 
+print('img-pth', articles[0]['img'])
 # generate json data
 jsonData = json.dumps({
     "articles": articles
