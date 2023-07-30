@@ -76,16 +76,17 @@ body {
   -webkit-animation: twinkle 3s infinite, move 200s linear infinite;
   -moz-animation: twinkle 3s infinite, move 200s linear infinite;
   -o-animation: twinkle 3s infinite, move 200s linear infinite;
-  animation: twinkle 3s infinite, move 200s cubic-bezier(0.4, 0, 0.2, 1) infinite,meteor 0.2s linear infinite;
+  animation: twinkle 30s infinite, move 200s cubic-bezier(0.4, 0, 0.2, 1) infinite,meteor 0.2s linear infinite;
   position: fixed;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  transition: 4s linear;
+  rotate: 0deg;
+  transform-origin: 100px 100px;
+  transition: 10s linear;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-
 }
 
 @-webkit-keyframes twinkle {
@@ -127,12 +128,15 @@ body {
 @keyframes twinkle {
   0% {
     opacity: 1;
+    rotate: 0deg;
   }
   50% {
     opacity: 0.5;
+    rotate: 180deg;
   }
   100% {
     opacity: 1;
+    rotate: 360deg;
   }
 }
 
