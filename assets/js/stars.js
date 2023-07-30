@@ -47,15 +47,29 @@ const animateStars = () => {
     const isPositiveY = Math.random() < 0.5;
     const directionX = isPositiveX ? 1 : -1;
     const directionY = isPositiveY ? 1 : -1;
+    const speed = 10 * size;
 
-    star.style.left = `${x + directionX * (10 * size)}px`;
-    star.style.top = `${y + directionY * (10 * size)}px`;
+    // Check if the star has reached the edge of the screen
+    if (x < -100 || x > window.innerWidth || y < -100 || y > window.innerHeight) {
+      // Reset the position of the star to a new random position
+      star.style.left = `${getRandomNumber(-100, window.innerWidth)}px`;
+      star.style.top = `${getRandomNumber(-100, window.innerHeight)}px`;
+    } else {
+      // Move the star in the current direction
+      star.style.left = `${x + directionX * speed}px`;
+      star.style.top = `${y + directionY * speed}px`;
+
+      // Add the meteor class to stars that are moving fast
+      if (speed > 1000) {
+        star.classList.add('meteor');
+      } else {
+        star.classList.remove('meteor');
+      }
+    }
   });
 };
-
 const interval = setInterval(animateStars, 1000);
 
-// JavaScript
 // JavaScript
 const planetContainer = document.getElementById('planet-container');
 const planetImages = [
