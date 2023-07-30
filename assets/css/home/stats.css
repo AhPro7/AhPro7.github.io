@@ -33,12 +33,12 @@
 
   .guage.teal {
     color: #3B82F6;
-    background: conic-gradient(#3B82F6 0% 20%, #303238 20% 100%);
+    background: conic-gradient(#3B82F6 0% 60%, #303238 60% 100%);
   }
 
   .guage.pink {
     color: #d051eb;
-    background: conic-gradient(#d051eb 0% 34%, #303238 34% 100%);
+    background: conic-gradient(#d051eb 0% 10%, #303238 10% 100%);
   }
 
   .guage.white {
