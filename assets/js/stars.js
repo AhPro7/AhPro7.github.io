@@ -10,11 +10,11 @@ function createStar() {
   star.classList.add('star');
 
   // Set the position of the star randomly on the x-axis and y-axis
-  const x = getRandomNumber(-100, window.innerWidth);
-  const y = getRandomNumber(-100, window.innerHeight);
+  const x = getRandomNumber(-500, window.innerWidth + 500);
+  const y = getRandomNumber(-500, window.innerHeight + 500);
   star.style.left = `${x}px`;
   star.style.top = `${y}px`;
-
+  
   // Set the size of the star randomly
   const size = getRandomNumber(1, 4);
   star.style.width = `${size}px`;
@@ -29,10 +29,10 @@ function createStar() {
 }
 
 // Add stars to the page
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 200; i++) {
   const star = createStar();
   document.body.appendChild(star);
-  document.body.appendChild(star);
+  // document.body.appendChild(star);
 }
 
 // JavaScript
