@@ -55,7 +55,6 @@ for i in range(len(files)):
         elif tag.get("name") == "img":
             metaData["img"] = tag.get("content")
             #remove first slash
-            # metaData["img"] = metaData["img"][1:]
 
     # add the metadata to the articles list
     articles.append(metaData)
