@@ -10,7 +10,7 @@ fetch("../data/articles.json").then(response => response.json()).then(data => {
         articleElement.innerHTML = `
             <div class="article-info">
               <div class="thumbnail">
-                <img src="${article.img}" alt="" />
+                <img src="/${article.img}" alt="" />
               </div>
               <span class="article-title">${article.title}</span>
               <span class="article-firstpart">
