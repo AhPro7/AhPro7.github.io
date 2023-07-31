@@ -48,7 +48,7 @@ header h1 {
   height: 100%;
   background: #fff;
   position: absolute;
-  left: -5px;
+  right: -5px;
   top: 0;
   animation: blink 1s infinite;
 }
