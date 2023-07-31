@@ -5,6 +5,23 @@ body{
 main{
     color: aliceblue;
 }
+
+mark{
+    background-color: #5536df; /* lighter background color */
+    color: #f2f8ff;
+    background-origin: padding-box;
+    border-radius: 5px; /* add rounded corners */
+}
+
+.content {
+    list-style: circle;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.5rem; */
+}
+
+
 .typed{
     font-size: 70px;
      margin: 0px;
