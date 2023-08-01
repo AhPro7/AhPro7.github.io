@@ -1,9 +1,35 @@
 body{
     /* make the body zoom by 125% */
     zoom: 125%;
+    /* background-color: #00131f; */
 }
+/* nav{
+    background-color: #102e42;
+} */
+
 main{
     color: aliceblue;
+}
+
+.img_in_middle_article{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width:60%;
+}
+
+.img_in_right_article{
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    width: 50%;
+}
+
+.img_in_left_article{
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    width: 50%;
 }
 
 mark{
@@ -11,16 +37,24 @@ mark{
     color: #f2f8ff;
     background-origin: padding-box;
     border-radius: 5px; /* add rounded corners */
+    font-weight: bold; /* make the text bold */
 }
 
-.content {
-    list-style: circle;
-    margin: 0.5rem;
+.content-ul{
+    list-style: decimal-leading-zero;
+    /* margin: 0.5rem; */
     display: flex;
     flex-direction: column;
     /* gap: 0.5rem; */
+    margin-top: -0.5rem;
 }
 
+.content-ul li{
+
+    margin-left: 0rem;
+    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
+}
 
 .typed{
     font-size: 70px;
@@ -50,13 +84,16 @@ img.article-banner{
 .article-body h2{
     font-size: 2rem;
     font-weight: 600;
+    text-decoration: underline;
     margin-bottom: 1rem;
 }
 
 .article-body h3{
     font-size: 1.5rem;
     font-weight: 600;
+    text-decoration: underline;
     margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 .article-body h4{

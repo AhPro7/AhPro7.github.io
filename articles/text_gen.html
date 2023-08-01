@@ -143,15 +143,68 @@
                 is that it was generated without any explicit supervision! By simply learning to <b>predict the next word</b> in the <b>text of millions of web pages</b>
             </p>
             <hr/>
-            <h2>Content</h2>
-                <ul class="content">
-                  <li ><b>Seq 2 Seq Overview <mark>(you can skip this)</mark></b></li>
-                  <li ><b>Challenge with Generating Coherent Text</b></li>
-                  <li ><b>Decoding Methods</b></li>
-                  <li ><b>Measuring the Quality of Generated Text</b></li>
+            <h2>Content :</h2>
+                <ul class="content-ul">
+                  <li style="margin-bottom: 8px;"><b>Seq 2 Seq Overview <mark>(you can skip this)</mark></b></li>
+                  <li style="margin-bottom: 8px;"><b>Challenge with Generating Coherent Text</b></li>
+                  <li style="margin-bottom: 8px;"><b>Decoding Methods</b></li>
+                  <li style="margin-bottom: 8px;"><b>Measuring the Quality of Generated Text</b></li>
                 </ul>
-            <!-- end -->
+                <hr/>
+            <h2>Seq 2 Seq Overview</h2>
+
+            <p>
+              Seq2Seq models are a class of models that are used to convert a sequence of one type into a sequence of another type. 
+              They are used in a variety of tasks such as <b>machine translation</b>, <b>text summarization</b>, <b>question answering</b>, and <b>text generation</b>. <br/>
+              <mark>
+                let's say we have a sequence of words in English and we want to translate it to a sequence of words in French. this is a Seq2Seq problem. called <b>Machine Translation</b> which will be the example for this part.
+              </mark>
+              <br/>
+
+              The basic idea behind Seq2Seq models is that we have two recurrent neural networks (RNNs) called the <b>encoder</b> and the <b>decoder</b> that work together to transform one sequence to another.<br/>
+             <mark>  one model explain the input for the other model to help it generate the output</mark> 
+            </p>
+
+            <video src="https://jalammar.github.io/images/seq2seq_4.mp4" controls class="img_in_middle_article"></video>
+            
+            <p>
+              <h3> Encoder </h3> 
+              The encoder takes the input sequence and encodes it into a single vector called the <b>context vector</b>.<br/>
+              <mark><b>ht=f(xt,ht−1)</b> &&    
+              <b>c=q(h1,…,hT)</b></mark><br/>
+              The encoder is a recurrent neural network (RNN), such as a GRU or LSTM. At each time step, the encoder produces a hidden state ht. The context vector c is then generated from the sequence of hidden states ht, using a nonlinear function q. The context vector c summarizes the entire input sequence and is used by the decoder to generate the output sequence.
+              
+
+            </p>
+
+            <p>
+              <h3> Decoder </h3>
+              The decoder takes the <b>context vector</b> and generates the output sequence.<br/>
+              The decoder is trained to predict the next word yt given the context vector c and all the previously predicted words {y1, ..., yt-1}. It defines a probability over the translation y by decomposing the joint probability:
+              <mark>P(y)=∏Tt=1P(yt|y1,…,yt−1,c)</mark> this equation means that the probability of the next word yt is dependent on the previous words {y1, ..., yt-1} and the context vector c. In other words, the probability of a translation sequence is calculated by computing the conditional probability of each word given the previous words.
+            </p> 
+            <video src="https://jalammar.github.io/images/seq2seq_6.mp4" controls class="img_in_middle_article"></video>
+
+            <p>
+              <h3> Attention </h3>
+              The attention mechanism is used to overcome the limitation of the encoder-decoder architecture. The encoder-decoder architecture encodes the entire input sequence into a single vector, which is then decoded into the output sequence. This architecture works well for <b>short sequences</b> but is <b>unable to generate good results for long sequences</b>. The attention mechanism overcomes this limitation by allowing the decoder to look at different parts of the input sequence at each step of the output generation. This is done by creating connections between the decoder and the encoder. The attention mechanism is a vector of weights that are multiplied with the encoder hidden states to get the context vector. The context vector is then concatenated with the decoder hidden state and fed into the decoder to generate the output.
+              <mark>
+                there is a lot of types of attention mechanism but we will not talk about them here.
+              </mark>
+            <video src="https://jalammar.github.io/images/attention_tensor_dance.mp4" controls class="img_in_middle_article"></video>
             <hr>
+            <h2>Challenge with Generating Coherent Text</h2>
+            <p>
+              For task-specific heads like sequence or token classification, generating predictions is fairly straightforward; the model produces some <b>logits</b> and we either take the maximum value to get the predicted class, or apply a <b>softmax</b> function to obtain the predicted probabilities per class <br/>
+              But converting the model’s probabilistic output to text requires a <b>decoding method</b>, which introduces a few challenges that are unique to text generation
+              <ul>
+                <li>
+                   The decoding is done iteratively and thus involves significantly more compute than simply passing inputs once through the forward pass of a model.
+                </li>
+                <li>
+                   The quality and diversity of the generated text depend on the choice of decoding method and associated hyper-parameters.              </ul>
+            </p>
+
         </div>
     </main>
     
