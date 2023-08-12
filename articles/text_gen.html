@@ -75,7 +75,7 @@
       defer
       type="text/javascript"
     ></script>
-    <script src="../assets/js/stars.js" defer></script>
+    <!-- <script src="../assets/js/stars.js" defer></script> -->
     <script src="../assets/js/header.js" defer></script>
 
   </head>
@@ -193,7 +193,7 @@
               </mark>
             <video src="https://jalammar.github.io/images/attention_tensor_dance.mp4" controls class="img_in_middle_article"></video>
             <hr>
-            <h2>Challenge with Generating Coherent Text</h2>
+            <h2>The Challenge with Generating Coherent Text</h2>
             <p>
               For task-specific heads like sequence or token classification, generating predictions is fairly straightforward; the model produces some <b>logits</b> and we either take the maximum value to get the predicted class, or apply a <b>softmax</b> function to obtain the predicted probabilities per class <br/>
               But converting the model’s probabilistic output to text requires a <b>decoding method</b>, which introduces a few challenges that are unique to text generation
@@ -204,10 +204,140 @@
                 <li>
                    The quality and diversity of the generated text depend on the choice of decoding method and associated hyper-parameters.              </ul>
             </p>
+            </p>
+            <hr>
+            
+            <h2>Decoding Methods</h2>
+            <h3> intro </h3>
+            <p> 
+              we will take GPT-2 as an example how it decode the output.
+              <br/>
+              <mark> If you skipped the previous part, please read the decoder section.</mark>
+              <h3> more </h3>
+              <p><strong>GPT-2</strong> is a language model that is trained to predict the next word in a sequence. It does this by estimating the probability of each possible next word, given the previous words in the sequence. This probability is called <strong>P(y|x)</strong>, where <strong>y</strong> is the next word and <strong>x</strong> is the sequence of previous words.</p>
+              <mark>However, it is impractical to gather enough training data to estimate P(y|x) directly. This is because the number of possible sequences of words is astronomically large. Instead, GPT-2 uses the chain rule of probability to factorize P(y|x) as a product of conditional probabilities.</mark>
+              <p>
+                <strong>The chain rule</strong> of probability states that the probability of a sequence of events occurring is equal to the product of the probabilities of each event occurring, given that the previous events have already occurred. In the case of GPT-2, the sequence of events is the sequence of words.
+                <br>
+                <mark>P(w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n</sub>) = P(w<sub>1</sub>) * P(w<sub>2</sub> | w<sub>1</sub>) * P(w<sub>3</sub> | w<sub>1</sub>, w<sub>2</sub>) * ... * P(w<sub>n</sub> | w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n-1</sub>)</mark>
+                <p>
+                  For example, let's say we want to predict the next word in the sequence "I am a". The chain rule of probability tells us that the probability of this sequence occurring is equal to the probability of the word "a" occurring, given that the words "I" and "am" have already occurred, multiplied by the probability of the word "I" occurring, given that no words have previously occurred.
+                </p>
 
-        </div>
-    </main>
-    
+                <p>
+                  In other words, the probability of the sequence "I am a" occurring is equal to P("a" | "I am") * P("I" | "").
+                </p>
+
+                <p>
+                  The chain rule of probability is a powerful tool that allows GPT-2 to estimate the probability of a sequence of words even when there is not enough training data to estimate P(y|x) directly.
+                </p>
+
+                <p>
+                  Here are some examples of how the chain rule of probability can be used to predict the next word in a sequence:
+                </p>
+
+                <ul>
+                  <li>
+                    If the previous words are "I am", the probability of the next word being "a" is high. This is because the word "a" is a common word that often follows the word "I".
+                  </li>
+                  <li>
+                    If the previous words are "I am a", the probability of the next word being "dog" is low. This is because the word "dog" is not a common word that follows the phrase "I am a".
+                  </li>
+                </ul>
+                <img src="images/chain.png" class="img_in_middle_article">
+                <!-- FILEPATH: /run/media/ahmed/Medo/Blog-Post/old/AhPro7.github.io/articles/text_gen.html -->
+                <p>At the heart of this process lies a decoding method that determines which token is selected at each timestep. Since the language model head produces a <mark>logit zt</mark>, i per token in the vocabulary at each step, we can get the probability distribution over the next possible token <mark>wi</mark> by taking the <mark>softmax</mark>:</p>
+                <mark>P(yₜ = wᵢ | y₍ₜ₋₁₎, x) = softmax(zₜ)</mark>
+              </p>
+            </p>
+            <blockquote>The goal of most decoding methods is to search for the most likely overall sequence by picking a <mark>Y</mark> such that:</blockquote>
+            <mark> Ŷ = argmax₍y₎ P(y|x)</mark><br/>
+              Finding <strong>y-hat</strong> directly would involve evaluating every possible sequence with the language model. Since there does not exist an algorithm that can do this in a reasonable amount of time
+            <hr>
+            <h2>Decoding Methods</h2>
+            <h3>1. Greedy Search Decoding</h3>
+            <p>The simplest decoding method to get discrete tokens from a model’s continuous output is to
+              greedily select the token with the highest probability at each timestep:</p>
+            <mark>Ŷ = argmax₍y₎ P(y|x)</mark><br/>
+            <p>
+              Greedy search decoding is a simple decoding method that selects the token with the highest probability at each timestep. This method is computationally efficient, but it may not always produce the best results. The main drawback of greedy search decoding is that it tends to produce repetitive and generic text.
+            </p>
+            <p> let's see an example of greedy search decoding with GPT-2</p>
+
+            <pre><code class="language-python">import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model_name = "gpt2-xl"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name).to(device)</code></pre>
+            
+            <p> we get the model now we can use it to generate text</p> 
+            <pre><code class="language-python">import pandas as pd
+
+input_txt = "Transformers are the"
+input_ids = tokenizer(input_txt, return_tensors="pt")["input_ids"].to(device)
+iterations = []
+n_steps = 8
+choices_per_step = 5
+
+with torch.no_grad():
+  for _ in range(n_steps):
+    iteration = dict()
+    iteration["Input"] = tokenizer.decode(input_ids[0])
+    output = model(input_ids=input_ids)
+    # Select logits of the first batch and the last token and apply softmax
+    next_token_logits = output.logits[0, -1, :]
+    next_token_probs = torch.softmax(next_token_logits, dim=-1)
+    sorted_ids = torch.argsort(next_token_probs, dim=-1, descending=True)
+    # Store tokens with highest probabilities
+    for choice_idx in range(choices_per_step):
+    token_id = sorted_ids[choice_idx]
+    token_prob = next_token_probs[token_id].cpu().numpy()
+    token_choice = (
+    f"{tokenizer.decode(token_id)} ({100 * token_prob:.2f}%)"
+    )
+    iteration[f"Choice {choice_idx+1}"] = token_choice
+    # Append predicted next token to input
+    input_ids = torch.cat([input_ids, sorted_ids[None, 0, None]], dim=-1)
+    iterations.append(iteration)
+pd.DataFrame(iterations)</code></pre>
+
+<blockquote>Test it in Colab or Kaggle :) </blockquote>
+            <p> now we will use the built-in function in transformers library to generate text</p>
+            <pre><code class="language-python">input_ids = tokenizer(input_txt, return_tensors="pt")["input_ids"].to(device)
+output = model.generate(input_ids, max_new_tokens=n_steps, do_sample=False)
+print(tokenizer.decode(output[0]))</code></pre>
+  <hr>
+  <h3>2. Beam Search Decoding</h3>
+  <p>Beam search decoding is a simple modification of greedy search decoding that keeps track of the <mark>k</mark> most likely sequences at each timestep, where <mark>k</mark> is a hyperparameter called the beam size. At each timestep, the beam search algorithm expands the <mark>k</mark> most likely sequences by adding all possible tokens to each sequence and keeping the <mark>k</mark> sequences with the highest probabilities. The beam search algorithm terminates when all <mark>k</mark> sequences end with the end-of-sequence token or when a maximum number of steps is reached.</p>
+
+  <div>
+    <ul>
+      <li>Imagine you are trying to find the shortest path from one point to another on a map. You could start by following the path with the highest probability of being the shortest. But if you do that, you might miss out on other paths that are just as short or even shorter.</li>
+      <li>A better way to find the shortest path is to consider all of the possible paths at each step. You can do this by keeping track of the top-b most probable paths, where b is the number of paths you want to consider.</li>
+      <li>At each step, you can then choose the next path to follow by considering all of the possible extensions of the existing paths. You can then select the b most likely extensions.</li>
+      <li>This process continues until you reach your destination.</li>
+    </ul>
+    <p>In the context of natural language processing, beam search is a technique used to generate text. It works by keeping track of the top-b most probable sequences of tokens at each step. At each step, the next token is chosen by considering all of the possible extensions of the existing sequences. The b most likely extensions are then selected.</p>
+    <p>Beam search is a more complex technique than greedy search, but it can often produce better results. This is because beam search considers more possibilities at each step, which can help to prevent the model from getting stuck in local minima.</p>
+    <p>Here is an example of how beam search works:</p>
+    <ul>
+      <li>Imagine you want to generate the sentence "The cat sat on the mat." The beam search algorithm would start by considering all of the possible sequences of tokens that start with the word "The." It would then choose the b most probable sequences.</li>
+      <li>At the next step, the algorithm would consider all of the possible extensions of the b most probable sequences. It would then choose the b most probable extensions.</li>
+      <li>This process would continue until the algorithm had generated the complete sentence "The cat sat on the mat."</li>
+    </ul>
+    <img class="img_in_middle_article" src="images/beam_search.png" alt="beam search">
+    <p> let's see an example of beam search decoding with GPT-2</p> 
+    <pre><code class="language-python">output_beam = model.generate(input_ids, max_length=max_length, num_beams=5, do_sample=False)
+
+logp = sequence_logprob(model, output_beam, input_len=len(input_ids[0]))
+print(tokenizer.decode(output_beam[0]))</code></pre>
+<hr>
+<h3>3. Sampling Decoding</h3>
+<p>Sampling decoding is a technique used to generate text. It works by randomly selecting the next token from the probability distribution over the vocabulary. This technique is often used in conjunction with beam search decoding.</p>
+
+  </div>
+            </main>
     <script src="../assets/js/script.js"></script>
     <script>
       hljs.highlightAll();
