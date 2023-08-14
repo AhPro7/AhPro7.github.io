@@ -336,8 +336,88 @@ print(tokenizer.decode(output_beam[0]))</code></pre>
 <h3>3. Sampling Decoding</h3>
 <p>Sampling decoding is a technique used to generate text. It works by randomly selecting the next token from the probability distribution over the vocabulary. This technique is often used in conjunction with beam search decoding.</p>
 
-  </div>
-            </main>
+<p><mark>P (y<sub>t</sub> = w<sub>i</sub> | y<sub>&lt;t</sub>, X) = <strong>softmax(z<sub>t</sub>, i)</strong> = <sup>exp(z<sub>ti</sub>)</sup>&frasl;<sub>Σ<sub>j</sub> exp(z<sub>tj</sub>)</sub></mark></p>
+
+<p>where |V| denotes the cardinality of the vocabulary. We can easily control the diversity of the output by adding a temperature parameter T that rescales the logits before taking the softmax:</p>
+<p><mark>P(y<sub>t</sub> = w<sub>i</sub> | y<sub>&lt;t,x</sub>) = <sup>exp(z<sub>t,i/T</sub>)</sup>&frasl;<sub>Σ<sub>j=1</sub> exp(z<sub>tj/T</sub>)</sub></mark></p>
+<p>The formula takes the logits from the language model and scales them by the temperature parameter. The scaled logits are then passed through a softmax function to produce a probability distribution over the tokens.</p>
+
+<p>Temperature sampling addresses this problem by adding a <strong>temperature parameter</strong> to the output distribution. The temperature parameter controls how "smooth" the distribution is. When the temperature is low, the distribution is peaked around the most likely tokens, which makes the outputs more repetitive. When the temperature is high, the distribution is flatter, which makes the outputs more diverse.</p>
+<img class="img_in_middle_article" src="images/Tem.png" alt="temperature sampling">
+
+<p>In plain English, the formula says that the probability of a token being chosen is proportional to the exponent of the token's logit, divided by the sum of the exponents of all the tokens. The temperature parameter controls the exponents, so it controls the shape of the probability distribution.</p>
+
+<p>Here is an example of how temperature sampling works. Let's say we have a language model that has been trained on a dataset of news articles. We want to use the language model to generate a new news article.</p>
+
+<p>If we set the temperature parameter to a low value, the language model will be more likely to generate an article that is similar to the articles in the training dataset. This is because the low temperature will cause the probability distribution to be peaked around the most likely tokens, which are the tokens that appear frequently in the training dataset.</p>
+
+<p>If we set the temperature parameter to a high value, the language model will be more likely to generate an article that is different from the articles in the training dataset. This is because the high temperature will cause the probability distribution to be flatter, which means that all the tokens will have a chance of being chosen.</p>
+
+<p>The effect of temperature on token probabilities is shown in the image you sent me. The image shows the probability of a token being chosen as a function of the temperature parameter. As the temperature increases, the probability of all the tokens increases, but the probability of the most likely tokens decreases.</p>
+
+<pre><code class="language-python">output_temp = model.generate(input_ids, max_length=max_length, do_sample=True,temperature=2.0, top_k=0)
+print(tokenizer.decode(output_temp[0]))</code></pre>
+<mark>change the temperature and see the difference</mark>
+<hr>
+<h3>4. Top-K and Nucleus Sampling</h3>
+<p>Top-k and nucleus (top-p) sampling are two popular alternatives or extensions tousing temperature.</p>
+
+
+<p>in both cases, the basic idea is to restrict the number of possible tokens we can sample from at each timestep</p>
+<p>To see how this works, let’s first visualize <mark><strong>The cumulative probability</strong></mark> distribution of the model’s outputs at <strong>T = 1</strong> as seen in</p>
+<img class="img_in_middle_article" src="images/Top_K.png" alt="cumulative probability">
+
+<p><em>Let’s tease apart these plots, since they contain a lot of information.</em></p>
+<p>The upper plot shows a histogram of the token probabilities. A <strong>histogram</strong> is a graph that shows the distribution of data. In this case, the data is the probabilities of the tokens in the vocabulary.</p>
+<p>The histogram has two peaks. The first peak is around 10<sup>-8</sup>, which means that there are a lot of tokens with a probability of about 1 in 100 million. The second peak is around 10<sup>-4</sup>, which means that there are a few more tokens with a probability of about 1 in 10,000.</p>
+<p>After the second peak, there is a sharp drop. This means that there are only a handful of tokens with a probability between 10<sup>-2</sup> and 10<sup>-1</sup>. The isolated bar at 10<sup>-1</sup> represents the token with the highest probability. The probability of picking this token is 1 in 10.</p>
+<p>In other words, the most likely token has a probability of 1 in 10. There are a few other tokens that are also relatively likely, but the vast majority of tokens have a very low probability.</p>
+
+
+<p><strong>The lower plot</strong> shows the cumulative probability of picking a token from the vocabulary. The cumulative probability is the probability of picking a token and all the tokens that come before it.</p>
+<img class="img_in_middle_article" src="images/cul.png" alt="cumulative probability">
+
+<p>The plot shows that there is a 96% chance of picking any of the 1,000 tokens with the highest probability. This means that if you randomly pick a token, there is a 96% chance that it will be one of the 1,000 most likely tokens.</p>
+
+  <p>The probability rises quickly above 90%, but it takes several thousand tokens to reach close to 100%. This means that there is a 1 in 100 chance of not picking any of the tokens that are not even in the top 2,000.</p>
+
+  <p>These numbers might seem small at first, but they become important when you consider that we sample once per token when generating text. So even if there is only a 1 in 100 or 1,000 chance of picking an unlikely token, if we sample hundreds of times, there is a significant chance of picking an unlikely token at some point.</p>
+
+  <p>This can badly influence the quality of the generated text. For this reason, we generally want to avoid these very unlikely tokens. This is where top-k and top-p sampling come into play.</p>
+<pre><code class="language-python">output_topk = model.generate(input_ids, max_length=max_length, do_sample=True,top_k=50)
+print(tokenizer.decode(output_topk[0]))
+
+output_topp = model.generate(input_ids, max_length=max_length, do_sample=True,top_p=0.90)
+print(tokenizer.decode(output_topp[0]))</code></pre>
+
+<mark>Top-k sampling is a technique that avoids the low-probability choices by only sampling from the k tokens with the highest probability. For example, if we set k to 100, then we will only sample from the 100 most likely tokens.</mark>
+<br><br>
+
+<mark>Top-p sampling is a similar technique that avoids the low-probability choices by only sampling from the tokens whose cumulative probability is greater than or equal to p. For example, if we set p to 0.95, then we will only sample from the tokens whose cumulative probability is greater than or equal to 95%.</mark>
+<blockquote>We can also apply beam search when we use sampling. Instead of
+  selecting the next batch of candidate tokens greedily, we can sample
+  them and build up the beams in the same way</blockquote>
+<hr>
+<h2>Which Decoding Method Is Best?</h2>
+<p>Unfortunately, There is no universally "best" decoding method for language models. The best approach will depend on the nature of the task you are generating text for.</p>
+<ul>
+  <li>If you want your model to perform a precise task, such as arithmetic or providing an answer to a specific question, you should lower the temperature or use deterministic methods like greedy search in combination with beam search. This will guarantee that the model always generates the most likely answer.</li>
+  <li>If you want the model to generate longer texts and even be a bit creative, you should switch to sampling methods and increase the temperature. This will allow the model to explore more possibilities and generate more diverse text. You can also use a mix of top-k and nucleus sampling to further control the diversity of the generated text.</li>
+</ul>
+<hr>
+<h2>Measuring the Quality of Generated Text</h2>
+<p>
+  this section will be in the next article. as this article is too long.
+
+</p>
+<hr>
+<h2 style="color: rgb(17, 124, 255);">References</h2>
+<ul>
+  <li><a href="https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/">Visualizing A Neural Machine Translation Model (Mechanics of Seq2seq Models With Attention)</a></li>
+  <li><a href="https://www.oreilly.com/library/view/natural-language-processing/9781098136789/">Natural Language Processing with Transformers</a></li>
+
+
+</main>
     <script src="../assets/js/script.js"></script>
     <script>
       hljs.highlightAll();

@@ -44,7 +44,9 @@ main{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width:60%;
+    max-width:70%;
+    /* make the edges roundes */
+    border-radius: 10px;
 }
 
 .img_in_right_article{
@@ -52,6 +54,8 @@ main{
     margin-left: auto;
     margin-right: 0;
     width: 50%;
+    border-radius: 10px;
+
 }
 
 .img_in_left_article{
@@ -59,6 +63,8 @@ main{
     margin-left: 0;
     margin-right: auto;
     width: 50%;
+    border-radius: 10px;
+
 }
 
 mark{
@@ -101,7 +107,7 @@ mark{
 img.article-banner{
     width: 100%;
     margin-bottom: 1rem;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .article-body{
@@ -191,6 +197,9 @@ img.article-banner{
     border-radius: 5px;
     font-family: 'Fira Code', monospace;
     box-shadow: 0 0 10px #3B82F6;
+    max-height: 250px;
+    overflow: auto;
+
 }
 
 .hljs {
@@ -292,6 +301,8 @@ img.article-banner{
     }
     .article-body code{
         font-size: 0.8rem;
+        max-height: 250px;
+        overflow: auto;
     }
 }
 @media screen and (max-width: 400px) {
