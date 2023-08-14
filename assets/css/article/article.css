@@ -267,6 +267,13 @@ img.article-banner{
 
 /* make page responsive */
 @media screen and (max-width: 600px) {
+    body{
+        /* make the body zoom by 125% */
+        /* zoom: 125%; */
+        margin: 0rem;
+        margin-top: 0rem;
+        /* background-color: #00131f; */
+    }
     .typed {
         font-size: 40px;
         margin-top: 10px;
@@ -306,8 +313,24 @@ img.article-banner{
     }
 }
 @media screen and (max-width: 400px) {
+    body{
+        /* make the body zoom by 125% */
+        /* zoom: 125%; */
+        margin: 0rem;
+        margin-top: 0rem;
+        /* background-color: #00131f; */
+    }
     .typed {
       font-size: 30px;
       margin-top: 15px;
     }
   }
+
+  @media screen and (max-width: 100px) {
+    body{
+        /* make the body zoom by 125% */
+        /* zoom: 125%; */
+        margin: 0rem;
+        margin-top: 0rem;
+        /* background-color: #00131f; */
+    }}
